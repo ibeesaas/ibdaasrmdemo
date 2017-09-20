@@ -222,7 +222,7 @@ public class TBReport {
      */
     public static class Order {
        private String orderId; // 	订单编号
-       private List<SubList> subList; //	商品详情
+       private List<SubList> sub_list; //	商品详情
        private String transport; // 	运送方式
        private String name; // 	收货人姓名
        private String address; // 	收货地址
@@ -241,7 +241,7 @@ public class TBReport {
         public String toString() {
             return "Order{" +
                     "orderId='" + orderId + '\'' +
-                    ", subList=" + subList +
+                    ", sub_list=" + sub_list +
                     ", transport='" + transport + '\'' +
                     ", name='" + name + '\'' +
                     ", address='" + address + '\'' +
@@ -266,12 +266,12 @@ public class TBReport {
             this.orderId = orderId;
         }
 
-        public List<SubList> getSubLists() {
-            return subList;
+        public List<SubList> getSubList() {
+            return sub_list;
         }
 
-        public void setSubLists(List<SubList> subList) {
-            this.subList = subList;
+        public void setSubList(List<SubList> sub_ist) {
+            this.sub_list = sub_ist;
         }
 
         public String getTransport() {
@@ -442,21 +442,21 @@ public class TBReport {
      * 淘宝账号信息
      */
     public static class Account {
-        private String userName; // 账户
+        private String username; // 账户
 
         @Override
         public String toString() {
             return "Account{" +
-                    "userName='" + userName + '\'' +
+                    "username='" + username + '\'' +
                     '}';
         }
 
-        public String getUserName() {
-            return userName;
+        public String getUsername() {
+            return username;
         }
 
-        public void setUserName(String userName) {
-            this.userName = userName;
+        public void setUsername(String username) {
+            this.username = username;
         }
     }
 

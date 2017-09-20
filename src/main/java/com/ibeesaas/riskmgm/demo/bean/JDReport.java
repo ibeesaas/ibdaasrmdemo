@@ -6,17 +6,27 @@ import java.util.List;
  * 京东报告
  */
 public class JDReport {
+    private String createTime; // 获取报告的时间
     private Account account; //	账户信息
     private List<Address> address; //	地址信息
     private List<Order> orders; // 订单信息
 
     @Override
     public String toString() {
-        return "JingdongReport{" +
-                "account=" + account +
+        return "JDReport{" +
+                "createTime='" + createTime + '\'' +
+                ", account=" + account +
                 ", address=" + address +
                 ", orders=" + orders +
                 '}';
+    }
+
+    public String getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
     }
 
     public Account getAccount() {

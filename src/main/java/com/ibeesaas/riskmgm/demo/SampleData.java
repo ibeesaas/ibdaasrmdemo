@@ -1,7 +1,10 @@
 package com.ibeesaas.riskmgm.demo;
 
 import com.ibeesaas.riskmgm.demo.bean.*;
+import com.ibeesaas.riskmgm.demo.util.ZipUtil;
 
+import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,14 +12,15 @@ import java.util.List;
  * 风控模型数据组装实例
  */
 public class SampleData {
+
     public static String getDataString() {
         RskMgmentEntity entity = new RskMgmentEntity();
         DebitCardInfo bank = new DebitCardInfo();
         entity.setBankCardInfo(bank);
-        bank.setBankCardNo("6225880***25258");
-        bank.setCardHolderName("***");
-        bank.setCardMobile("18630**016");
-        bank.setIdCardNo("1301811****253337");
+        bank.setBankCardNo("622588012325258");
+        bank.setCardHolderName("王思发");
+        bank.setCardMobile("18630123016");
+        bank.setIdCardNo("113018198102153337");
         entity.setBankCardInfo(bank);
 
 
@@ -30,10 +34,9 @@ public class SampleData {
         CarrierReport.CallHistory.Detail callDetailTmp = new CarrierReport.CallHistory.Detail();
         callDetailTmp.setCallLocation("山东德州");
         callDetailTmp.setCallType(0);
-        callDetailTmp.setCommType("012002001");
         callDetailTmp.setDuration(13);
         callDetailTmp.setFee(0);
-        callDetailTmp.setOtherPhone("1372****834");
+        callDetailTmp.setOtherPhone("13722376834");
         callDetailTmp.setStartTime("2017-01-31 17:36:03");
         List<CarrierReport.CallHistory.Detail> callDetails = new ArrayList<CarrierReport.CallHistory.Detail>();
         callDetails.add(callDetailTmp);
@@ -51,8 +54,8 @@ public class SampleData {
         List<CarrierReport.SmsHistory.Detail> smsHistoryDetails = new ArrayList<CarrierReport.SmsHistory.Detail>();
         CarrierReport.SmsHistory.Detail smsHistoryDetail = new CarrierReport.SmsHistory.Detail();
         smsHistoryDetail.setDate("2016-11-27 12:58:48");
-        smsHistoryDetail.setFee(0);
-        smsHistoryDetail.setOtherPhone("1380****295");
+        smsHistoryDetail.setFee(0.0);
+        smsHistoryDetail.setOtherPhone("13805412295");
         smsHistoryDetail.setSmsType(1);
         smsHistoryDetails.add(smsHistoryDetail);
         smsHistory.setDetails(smsHistoryDetails);
@@ -60,11 +63,11 @@ public class SampleData {
         // userInfo
         CarrierReport.UserInfo userInfo = new CarrierReport.UserInfo();
         carrierReport.setUserInfo(userInfo);
-        userInfo.setAddress("河北**");
-        userInfo.setIdentity("1301811****253337");
-        userInfo.setName("王**");
+        userInfo.setAddress("河北保定");
+        userInfo.setIdentity("113018198102153337");
+        userInfo.setName("王思发");
         userInfo.setOpenDate("2011-04-03 00:00:00");
-        userInfo.setPhoneNo("18630**016");
+        userInfo.setPhoneNo("18630123016");
 
         // taobaoReport
         TBReport taobaoReport = new TBReport();
@@ -75,19 +78,19 @@ public class SampleData {
         TBReport.BindAlipay bindAlipay = new TBReport.BindAlipay();
         taobaoReport.setBindAlipay(bindAlipay);
         bindAlipay.setAccountType("个人账户");
-        bindAlipay.setEmail("phw****10@163.com");
-        bindAlipay.setPhoneNo("183*****595");
-        bindAlipay.setVerifyInfo("潘** | 4****************9 已认证");
+        bindAlipay.setEmail("phwwang10@163.com");
+        bindAlipay.setPhoneNo("18630123016");
+        bindAlipay.setVerifyInfo("王思发 | 113018198102153337 已认证");
 
         // address
         List<TBReport.Address> taobaoAdds = new ArrayList<TBReport.Address>();
         taobaoReport.setAddress(taobaoAdds);
         TBReport.Address taobaoAdd = new TBReport.Address();
         taobaoAdds.add(taobaoAdd);
-        taobaoAdd.setAddress("育才街道*****");
-        taobaoAdd.setArea("河北省 *****");
-        taobaoAdd.setReceiver("潘**");
-        taobaoAdd.setTel("1833****8595");
+        taobaoAdd.setAddress("育才街道");
+        taobaoAdd.setArea("河北省 保定市");
+        taobaoAdd.setReceiver("王思发");
+        taobaoAdd.setTel("18630123016");
         taobaoAdd.setZipCode("050011");
 
         // orders
@@ -96,12 +99,12 @@ public class SampleData {
         TBReport.Order taobaoOrd = new TBReport.Order();
         taobaoOrds.add(taobaoOrd);
         taobaoOrd.setActualFee("19.90");
-        taobaoOrd.setAddress("河北省 **** ");
+        taobaoOrd.setAddress("河北省 保定市 ");
         taobaoOrd.setAlipayOrderId("2016092321001001050205064189");
         taobaoOrd.setCreateTime("2016-09-23 20:13:27");
         taobaoOrd.setEndTime("2016-09-28 21:03:18");
-        taobaoOrd.setMobilePhone("183****8595");
-        taobaoOrd.setName("潘**");
+        taobaoOrd.setMobilePhone("18630123016");
+        taobaoOrd.setName("王思发");
         taobaoOrd.setNick("奥义健与美专卖店");
         taobaoOrd.setOrderId("2211257767941755");
         taobaoOrd.setPayTime("2016-09-23 20:14:20");
@@ -117,11 +120,11 @@ public class SampleData {
         sublist.setPromotion("19.90");
         sublist.setQty("1");
         sublist.setSkuText("颜色分类:【水蓝瑜伽垫】=捆绑带+下载视频教程;厚度:10mm(初学者)");
-        taobaoOrd.setSubLists(subLists);
+        taobaoOrd.setSubList(subLists);
 
         // account
         TBReport.Account account = new TBReport.Account();
-        account.setUserName("****");
+        account.setUsername("phwwang10");
         taobaoReport.setAccount(account);
 
         // shop
@@ -140,7 +143,7 @@ public class SampleData {
         qualifications_list.add("该店铺中实物商品交易由保险公司保障交易钱款安全");
         qualifications_list.add("该店铺已签署消费者保障协议已缴纳xxxx元保证金");
         taobaoShop.setQualifications_list(qualifications_list);	// 店铺资质认证信息
-        taobaoShop.setShop_id("58010**0"); // 	店铺id
+        taobaoShop.setShop_id("58010010"); // 	店铺id
         taobaoShop.setShop_state(2); //	0-未开过店、1-店铺被关闭，2-正在运营
         taobaoShop.setAlipay_auth_time("2009-04-27"); // 	支付宝个人认证时间
         taobaoShop.setShopkeeper_nick("peiyniwg88"); // 	掌柜昵称
@@ -177,10 +180,10 @@ public class SampleData {
 
         // jingdongReport
         JDReport jingdongReport = new JDReport();
-
+        jingdongReport.setCreateTime("2017-09-01 00:00:00");
         //account
         JDReport.Account jdAccount = new JDReport.Account();
-        jdAccount.setUsername("1801*****");
+        jdAccount.setUsername("1801253561");
         jingdongReport.setAccount(jdAccount);
 
         // address
@@ -188,11 +191,11 @@ public class SampleData {
         jingdongReport.setAddress(jdAddrs);
         JDReport.Address jdAddr = new JDReport.Address();
         jdAddrs.add(jdAddr);
-        jdAddr.setAddress("江苏*****");
+        jdAddr.setAddress("江苏徐州市");
         jdAddr.setArea("");
         jdAddr.setEmail("");
-        jdAddr.setPhone("180*******");
-        jdAddr.setReceiver("张*");
+        jdAddr.setPhone("1801253561");
+        jdAddr.setReceiver("张达");
         jdAddr.setTel("");
 
         // orders
@@ -204,7 +207,7 @@ public class SampleData {
         jdOrd.setSub_list(jsSubs);
         JDReport.Order.SubList jdSub = new JDReport.Order.SubList();
         jsSubs.add(jdSub);
-        jdSub.setAddress("江苏****");
+        jdSub.setAddress("江苏徐州市");
         jdSub.setBillContent("");
         jdSub.setBillTitle("");
         jdSub.setBillType("不开发票");
@@ -215,7 +218,7 @@ public class SampleData {
         jdSub.setPhone("180*******");
         jdSub.setProductName("《TERA》客户端实体纪念礼包");
         jdSub.setQty("1");
-        jdSub.setReceiver("张*");
+        jdSub.setReceiver("张达");
         jdSub.setSendDate("");
         jdSub.setState("已取消");
         jdSub.setTransportPrice("");
@@ -224,12 +227,12 @@ public class SampleData {
 
         // creditCardInfo
         CreditCardInfo creditCardInfo = new CreditCardInfo();
-        creditCardInfo.setBankCardNo("62220201******23311");
-        creditCardInfo.setCardHolderName("张**");
-        creditCardInfo.setCardMobile("13******026");
+        creditCardInfo.setBankCardNo("622588012325258");
+        creditCardInfo.setCardHolderName("王思发");
+        creditCardInfo.setCardMobile("18630123016");
         creditCardInfo.setCardPeriod("2007");
         creditCardInfo.setCvn2("123");
-        creditCardInfo.setIdCardNo("320************628");
+        creditCardInfo.setIdCardNo("113018198102153337");
         entity.setCreditCardInfo(creditCardInfo);
 
         System.out.println(entity.parseToString());

@@ -16,6 +16,8 @@
 2. 打开SampleData.java文件，参照实例组装真实的模型数据。
 3. 执行RMDemo.java类，执行风控接口测试。
 
+>说明：该示例中的数据是演示用的假数据，如果直接调用，会返回“绑卡失败”的错误。
+
 ## 目录结构及文件说明：
 
 - com.ibeesaas.riskmgm.demo
@@ -29,8 +31,8 @@
     - CreditCardInfo 风控模型信用卡信息实体类
     - DebitCardInfo 风控模型储蓄卡信息实体类
     - JDReport 风控模型京东报告实体类
-    - TBReport 风控模型运营商数据实体类
-    - RskMgmentEntity 风控模型淘宝报告实体类
+    - TBReport 风控模型淘宝数据实体类
+    - RskMgmentEntity 风控模型输入数据实体类
 
 ## API Doc URL:
 

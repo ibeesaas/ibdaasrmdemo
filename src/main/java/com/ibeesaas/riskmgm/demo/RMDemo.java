@@ -26,11 +26,10 @@ public class RMDemo {
     public static void main(String[] args) throws IOException, NoSuchAlgorithmException {
         // TODO 需要使用真实申请的appkey
         String appKey = "";
-        // TODO 需要使用真实ak（AccessKey,Token 认证的存取 Key，用于交互双方确定使用相同 Key Pair 计算校验的 Token 值，合作方的 AK 由平台进行分配。）
+        // TODO 需要使用真实ak（AccessKey,用于计算校验Token 值，合作方的 AK 由平台进行分配。）
         String ak = "";
         // TODO 需要使用真实sk（Secure Key,Token 认证的安全密钥，和需要计算内容组合，生成唯一Token 值。合作方的SK由平台进行分配。）
         String sk = "";
-        // TODO 需要使用实际URL
         String url = "https://api.ibeesaas.com/daas/v1/tasks";
         String urlPath = "/daas/v1/tasks";
 
@@ -39,17 +38,18 @@ public class RMDemo {
 
         //拼接请求参数
         String queryParam = "appKey=" + appKey + "&taskType=" + taskType;
-        //post请求体
+        //post请求body
         Map<String, Object> bodyMap = new LinkedHashMap<String, Object>();
         // TODO 回调URL需要是自己服务的真实URL
-        bodyMap.put("callbackUrl", "https://callbackUrl");
+        bodyMap.put("callbackUrl", "");
 
-        //原报告
+        //原数据
         String report = SampleData.getDataString();
         //对报告进行zip压缩
-        String compress = ZipUtil.zip(report);
+        String compress = ZipUtil.gzip(report);
+        System.out.println(compress);
         bodyMap.put("data", compress);
-        //将请求体序列化
+        //将请求体序列
         String body = new GsonBuilder().disableHtmlEscaping().serializeNulls().create().toJson(bodyMap);
         int expireTime = (int) (System.currentTimeMillis() / 1000 + 1800);
         //生成token

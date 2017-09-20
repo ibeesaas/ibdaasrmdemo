@@ -6,7 +6,7 @@ import java.util.List;
  * 运营商报告
  */
 public class CarrierReport {
-    private CarrierReport.UserInfo userInfo;
+    private UserInfo userInfo;
     private List<CallHistory> callHistory;
     private List<SmsHistory> smsHistory;
 
@@ -144,9 +144,8 @@ public class CarrierReport {
             private int callType;	// 0：主叫 1：被叫
             private String startTime; //	通话开始时间
             private String callLocation; //	通话地点
-            private String commType; //	呼叫类型，本地通话， 漫游，等
             private int duration; // 通话时长，单位：秒
-            private int fee; // 本次通话话费
+            private double fee; // 本次通话话费
 
             public String getOtherPhone() {
                 return otherPhone;
@@ -180,14 +179,6 @@ public class CarrierReport {
                 this.callLocation = callLocation;
             }
 
-            public String getCommType() {
-                return commType;
-            }
-
-            public void setCommType(String commType) {
-                this.commType = commType;
-            }
-
             public int getDuration() {
                 return duration;
             }
@@ -196,7 +187,7 @@ public class CarrierReport {
                 this.duration = duration;
             }
 
-            public int getFee() {
+            public Double getFee() {
                 return fee;
             }
 
@@ -244,7 +235,7 @@ public class CarrierReport {
             private String otherPhone;
             private int smsType;
             private String date;
-            private int fee;
+            private Double fee;
 
             @Override
             public String toString() {
@@ -280,11 +271,11 @@ public class CarrierReport {
                 this.date = date;
             }
 
-            public int getFee() {
+            public Double getFee() {
                 return fee;
             }
 
-            public void setFee(int fee) {
+            public void setFee(Double fee) {
                 this.fee = fee;
             }
         }
